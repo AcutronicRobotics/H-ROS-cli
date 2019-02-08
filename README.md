@@ -15,6 +15,9 @@ The actual version of this CLI is `0.04`.
 - Modular Joints specific:
     - Set the actual position as zero
     
+## Installation
+The installation procedure is available in the [documentation](https://acutronicrobotics.com/docs/technology/h-ros/api#installation)    
+
 ## Learn more
 
 The documentation of this CLI is available in the official [Acutronic Robotics documentation](https://acutronicrobotics.com/docs/technology/h-ros/api).
