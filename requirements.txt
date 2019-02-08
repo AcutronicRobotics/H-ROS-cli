@@ -1,0 +1,2 @@
+nmap>=0.0.1
+netifaces==0.10.7
