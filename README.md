@@ -1,7 +1,7 @@
 # H-ROS-cli
 
 This is the official repository of the H-ROS CLI. This tool will help you to communicate and configure the 
-[H-ROS SoM](https://acutronicrobotics.com/technology/som/). Each H-ros SoM will integrate an API interface to customize
+[H-ROS SoM](https://acutronicrobotics.com/technology/som/). Each H-ROS SoM will integrate an API interface to customize
 some critical aspects, such as security or ros_domain_id. Using this tool is optional, the default configuration of an
 H-ROS SoM is enough to start working with.
 
