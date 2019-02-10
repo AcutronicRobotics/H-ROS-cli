@@ -14,23 +14,23 @@ def main(args=None):
 
     # A list command
     component_parser = subparsers.add_parser(
-        'component', help='Get and Set component related data')
+        'module', help='Get and Set module related data')
     component_parser.set_defaults(action='list')
 
     subparsers2 = component_parser.add_subparsers(help='commands')
 
     component_subparsers_parser = subparsers2.add_parser(
-        'list', help='Print a list of components available')
+        'list', help='Print a list of modules available')
 
 
     component_subparsers_parser_info = subparsers2.add_parser(
-        'info', help='Print information of selected component')
+        'info', help='Print information of selected module')
 
     component_subparsers_parser_info.add_argument(
         'targetIp',
         help='The IP where a SoM can be found',
     )
-    component_subparsers_parser_info.set_defaults(action='componentInfo')
+    component_subparsers_parser_info.set_defaults(action='moduleInfo')
 
     component_subparsers_parser_start = subparsers2.add_parser(
         'start', help='Start the build-in lifecycle service')
@@ -38,11 +38,11 @@ def main(args=None):
         'targetIp',
         help='The IP where a SoM can be found',
     )
-    component_subparsers_parser_start.set_defaults(action='componentStart')
+    component_subparsers_parser_start.set_defaults(action='moduleStart')
 
     component_subparsers_parser_stop = subparsers2.add_parser(
         'stop', help='Stop the build-in lifecycle service')
-    component_subparsers_parser_stop.set_defaults(action='componentStop')
+    component_subparsers_parser_stop.set_defaults(action='moduleStop')
 
     component_subparsers_parser_stop.add_argument(
         'targetIp',
@@ -50,8 +50,8 @@ def main(args=None):
     )
 
     component_subparsers_parser_reset = subparsers2.add_parser(
-        'reset', help='Set default configuration for component')
-    component_subparsers_parser_reset.set_defaults(action='componentReset')
+        'reset', help='Set default configuration for module')
+    component_subparsers_parser_reset.set_defaults(action='moduleReset')
 
     component_subparsers_parser_reset.add_argument(
         'targetIp',
@@ -60,7 +60,7 @@ def main(args=None):
 
     # A create command
     configure_parser = subparsers.add_parser(
-        'configure', help='Get and Set component specific configuration data')
+        'configure', help='Get and Set module specific configuration data')
     configure_parser.set_defaults(action='configure')
 
     subparsers3 = configure_parser.add_subparsers(help='commands')
@@ -81,7 +81,6 @@ def main(args=None):
     )
     component_subparsers_parser_rmw.set_defaults(action='configureRmw')
 
-
     component_subparsers_parser_domain = subparsers3.add_parser(
         'ros_domain_id', help='Get or Set ros_domain_id')
     component_subparsers_parser_domain.add_argument(
@@ -96,7 +95,7 @@ def main(args=None):
     component_subparsers_parser_domain.set_defaults(action='configureDomain')
 
     component_subparsers_parser_type = subparsers3.add_parser(
-        'type', help='Get or Set the type of component this SoM can act as')
+        'type', help='Get or Set the type of module this SoM can act as')
     component_subparsers_parser_type.add_argument(
         'targetIp',
         help='The IP where a SoM can be found',
@@ -137,22 +136,22 @@ def main(args=None):
 
     args = parser.parse_args()
     try:
-        if args.action == "componentInfo":
-            url = "http://" + args.targetIp + ":5012/api/component/info"
+        if args.action == "moduleInfo":
+            url = "http://" + args.targetIp + ":5012/api/module/info"
             print(requestGet(url))
         elif args.action == "componentReset":
-            url = "http://" + args.targetIp + ":5012/api/component/reset"
+            url = "http://" + args.targetIp + ":5012/api/module/reset"
             print(requestGet(url))
-        elif args.action == "componentStop":
-            url = "http://" + args.targetIp + ":5012/api/component/stop"
+        elif args.action == "moduleStop":
+            url = "http://" + args.targetIp + ":5012/api/module/stop"
             print(requestGet(url))
         elif args.action == "configureZero":
             if args.set != None:
-                url = "http://" + args.targetIp + ":5012/api/component/zero"
+                url = "http://" + args.targetIp + ":5012/api/module/zero"
                 data = '{"type": "' + str(args.set) + '"}'
                 print(requestPost(url, data))
-        elif args.action == "componentStart":
-            url = "http://" + args.targetIp + ":5012/api/component/start"
+        elif args.action == "moduleStart":
+            url = "http://" + args.targetIp + ":5012/api/module/start"
             print(requestGet(url))
         elif args.action == "configureRmw":
             if args.set != None:
@@ -193,7 +192,7 @@ def main(args=None):
 
 def check_interfaces():
 
-    print('Select your interface to discover the H-ROS components:')
+    print('Select your interface to discover the H-ROS modules:')
     interfaces = netifaces.interfaces()
     nic_array = [ ]
     iterator = 1
@@ -221,7 +220,7 @@ def check_interfaces():
         print('This interface does not have ip')
     return addr
 
-def hros_component_list(addr):
+def hros_module_list(addr):
 
     nm = nmap.PortScanner()
 
