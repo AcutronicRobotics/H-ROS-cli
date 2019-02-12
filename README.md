@@ -13,6 +13,8 @@ H-ROS is a standardized software and hardware infrastructure to create modular r
 
 The actual version of this CLI is `0.04`.
 
+[![PyPI version](https://badge.fury.io/py/hros.svg)](https://badge.fury.io/py/hros)
+
 ## Features
 - Get the actual information of the SoM (Version, hostname...)
 - Start/Stop the lifecycle that is running
