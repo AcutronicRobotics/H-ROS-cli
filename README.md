@@ -24,7 +24,7 @@ The actual version of this CLI is `0.04`.
     - Set the actual position as zero
 
 ## Installation
-The installation procedure is available in the [documentation](https://acutronicrobotics.com/docs/technology/h-ros/api#installation)
+The installation procedure is available in the [documentation](https://acutronicrobotics.com/docs/technology/h-ros/api#installation).
 
 ## Learn more
 
