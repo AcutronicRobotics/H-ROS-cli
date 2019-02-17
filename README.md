@@ -11,8 +11,6 @@ H-ROS SoM is enough to start working with.
 
 H-ROS is a standardized software and hardware infrastructure to create modular robot hardware. A complete modularity stack for robotics that allows to transform robot parts into devices that speak ROS 2 natively. First class participants of the robot ecosystem that simplify the integration effort.
 
-The actual version of this CLI is `0.04`.
-
 [![PyPI version](https://badge.fury.io/py/hros.svg)](https://badge.fury.io/py/hros)
 
 ## Features
