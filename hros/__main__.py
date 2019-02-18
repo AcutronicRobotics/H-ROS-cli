@@ -163,9 +163,12 @@ def main(args=None):
                 print(requestGet(url))
         elif args.action == "configureDomain":
             if args.set != None:
-                url = "http://" + args.targetIp + ":5012/api/ros2/ros_domain_id"
-                data = '{"ros_domain_id": ' + str(args.set) + '}'
-                print(requestPost(url, data))
+                if type(args.set) == int:
+                    url = "http://" + args.targetIp + ":5012/api/ros2/ros_domain_id"
+                    data = '{"ros_domain_id": ' + str(args.set) + '}'
+                    print(requestPost(url, data))
+                else:
+                    print("Invalid domain id")
 
             else:
                 url = "http://" + args.targetIp + ":5012/api/ros2/ros_domain_id"
