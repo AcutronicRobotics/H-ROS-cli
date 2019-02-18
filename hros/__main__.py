@@ -167,8 +167,6 @@ def main(args=None):
                     url = "http://" + args.targetIp + ":5012/api/ros2/ros_domain_id"
                     data = '{"ros_domain_id": ' + str(args.set) + '}'
                     print(requestPost(url, data))
-                else:
-                    print("Invalid domain id")
 
             else:
                 url = "http://" + args.targetIp + ":5012/api/ros2/ros_domain_id"
