@@ -5,6 +5,8 @@ import nmap
 import netifaces
 import requests
 import json
+import sys
+import pkg_resources
 
 def main(args=None):
     logger = logging.getLogger(__name__)
@@ -13,6 +15,10 @@ def main(args=None):
     subparsers = parser.add_subparsers(help='commands')
 
     # A list command
+    component_parser = subparsers.add_parser(
+        'version', help='Print tooling version and exit')
+    component_parser.set_defaults(action='version')
+
     component_parser = subparsers.add_parser(
         'module', help='Get and Set module related data')
     component_parser.set_defaults(action='list')
@@ -136,7 +142,10 @@ def main(args=None):
 
     args = parser.parse_args()
     try:
-        if args.action == "moduleInfo":
+        if args.action == "version":
+            print(pkg_resources.require("hros")[0].version)
+            sys.exit(0)
+        elif args.action == "moduleInfo":
             url = "http://" + args.targetIp + ":5012/api/module/info"
             print(requestGet(url))
         elif args.action == "componentReset":
