@@ -5,8 +5,6 @@ H-ROS SoM. Each H-ROS SoM will integrate an API interface to customize
 some critical aspects, such as security or ros_domain_id. Using this tool is optional, the default configuration of an
 H-ROS SoM is enough to start working with.
 
-<a href="https://acutronicrobotics.com/technology/H-ROS/"><img src="https://acutronicrobotics.com/technology/H-ROS/imgs/xH-ROS_intro_logo.png.pagespeed.ic.OiG4835AAz.webp" align="right" hspace="8" vspace="2" width="200"></a>
-
 H-ROS is a standardized software and hardware infrastructure to create modular robot hardware. A complete modularity stack for robotics that allows to transform robot parts into devices that speak ROS 2 natively. First class participants of the robot ecosystem that simplify the integration effort.
 
 [![PyPI version](https://badge.fury.io/py/hros.svg)](https://badge.fury.io/py/hros)
